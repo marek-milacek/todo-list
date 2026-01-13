@@ -24,8 +24,8 @@ const dueDate = document.getElementById('dueDate');
 const priority = document.getElementById('priority');
 
 const send = document.getElementById('send');
-send.addEventListener('click', (event) => {
-	event.preventDefault();
+send.addEventListener('click', (e) => {
+	e.preventDefault();
 
 	if (title.value === '') {
 		alert('Title is required!!');
