@@ -28,7 +28,7 @@ send.addEventListener('click', (event) => {
 	event.preventDefault();
 
 	if (title.value === '') {
-		alert('Musíš vyplnit alespoň název úkolu!');
+		alert('Title is required!!');
 		return;
 	}
 
@@ -75,13 +75,12 @@ const createCardStyle = (card) => {
 	priorityElement.textContent = 'Priority: ' + card.priorityValue;
 
 	const dateElement = document.createElement('div');
-	dateElement.textContent = 'Ends: ' + card.dueDateValue;
 	if (card.dueDateValue) {
 		const dateObj = new Date(card.dueDateValue);
 		const formattedDate = format(dateObj, 'dd. MM. yyyy');
-		dateElement.textContent = 'Termín: ' + formattedDate;
+		dateElement.textContent = 'Due: ' + formattedDate;
 	} else {
-		dateElement.textContent = 'Bez termínu';
+		dateElement.textContent = 'No due date';
 	}
 
 	const deleteCard = document.createElement('button');
@@ -111,7 +110,7 @@ const createCardStyle = (card) => {
 		} else {
 			cardDiv.style.opacity = '1';
 			titleElement.style.textDecoration = 'none';
-			toggleButton.textContent = 'Hotovo';
+			toggleButton.textContent = 'Complete';
 			toggleButton.style.backgroundColor = '';
 		}
 	};
